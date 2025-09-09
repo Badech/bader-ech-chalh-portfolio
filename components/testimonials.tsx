@@ -7,8 +7,8 @@ import { Quote, Star } from "lucide-react"
 export function Testimonials() {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Marketing Director",
+      name: "Jamal Oukazzou",
+      role: "Team Leader",
       company: "E-Market Solutions",
       content:
         "Bader consistently delivered exceptional email marketing campaigns that exceeded our performance targets. His expertise in AWS and Azure platforms helped us scale our operations efficiently.",
@@ -23,7 +23,7 @@ export function Testimonials() {
       rating: 5,
     },
     {
-      name: "Maria Rodriguez",
+      name: "Fatima Benali",
       role: "Project Manager",
       company: "Digital Solutions Inc.",
       content:

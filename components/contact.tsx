@@ -67,7 +67,7 @@ export function Contact() {
       icon: Linkedin,
       label: "LinkedIn",
       value: "LinkedIn Profile",
-      href: "https://www.linkedin.com/in/bader-ech-chalh-6b651517b/",
+      href: "https://www.linkedin.com/in/bader-ech-chalh/", // Updated LinkedIn URL to new profile link
     },
   ]
 

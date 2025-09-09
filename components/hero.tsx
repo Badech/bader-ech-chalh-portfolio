@@ -66,7 +66,7 @@ export function Hero() {
             className="flex items-center justify-center space-x-6"
           >
             <a
-              href="https://www.linkedin.com/in/bader-ech-chalh-6b651517b/"
+              href="https://www.linkedin.com/in/bader-ech-chalh/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-200"

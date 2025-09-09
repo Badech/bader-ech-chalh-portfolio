@@ -30,7 +30,7 @@ export function Footer() {
               <Mail className="h-6 w-6" />
             </a>
             <a
-              href="https://www.linkedin.com/in/bader-ech-chalh-6b651517b/"
+              href="https://www.linkedin.com/in/bader-ech-chalh/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-200"

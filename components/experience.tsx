@@ -8,7 +8,7 @@ import { Calendar, MapPin, Building } from "lucide-react"
 export function Experience() {
   const experiences = [
     {
-      title: "Agent Mailer",
+      title: "Email Marketing Specialist",
       company: "E-MARKET SOLUTIONS LPP",
       location: "Kenitra, Rabat-Salé-Kénitra, Morocco",
       period: "Dec 2020 – Aug 2022",

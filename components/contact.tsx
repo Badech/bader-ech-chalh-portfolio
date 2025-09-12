@@ -68,8 +68,8 @@ export function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "Bradechchalh@gmail.com",
-      href: "mailto:Bradechchalh@gmail.com",
+      value: "Bader.echchalh1@gmail.com",
+      href: "mailto:Bader.echchalh1@gmail.com",
     },
     {
       icon: Phone,

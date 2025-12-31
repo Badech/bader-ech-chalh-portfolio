@@ -1,8 +1,9 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
-import { Quote, Star } from "lucide-react"
+import { Quote, Star, CheckCircle2 } from "lucide-react"
 
 export function Testimonials() {
   const testimonials = [
@@ -33,47 +34,63 @@ export function Testimonials() {
   ]
 
   return (
-    <section id="testimonials" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-20 bg-muted/50">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What People Say</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Testimonials from colleagues and clients who have experienced my work firsthand.
+          <div className="inline-block mb-4">
+            <Badge variant="outline" className="text-primary font-medium">
+              Social Proof
+            </Badge>
+          </div>
+          <h2 className="text-balance mb-6">Trusted by Industry Leaders</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl text-pretty">
+            Verified feedback from engineering leaders, project managers, and colleagues who have directly experienced
+            my technical abilities and collaborative approach to problem-solving.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <Quote className="h-8 w-8 text-primary" />
-                    <div className="flex space-x-1">
+              <Card className="card-premium h-full flex flex-col">
+                <CardContent className="p-6 flex flex-col h-full">
+                  {/* Header with quote and rating */}
+                  <div className="flex items-start justify-between mb-4">
+                    <Quote className="h-8 w-8 text-accent/40" />
+                    <div className="flex gap-0.5">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                        <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                       ))}
                     </div>
                   </div>
 
-                  <blockquote className="text-muted-foreground mb-6 text-pretty">"{testimonial.content}"</blockquote>
+                  {/* Testimonial content */}
+                  <blockquote className="text-foreground font-medium mb-6 text-pretty flex-1">
+                    "{testimonial.content}"
+                  </blockquote>
 
-                  <div className="border-t border-border pt-4">
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                    <div className="text-sm text-primary">{testimonial.company}</div>
+                  {/* Author info */}
+                  <div className="border-t border-border pt-4 space-y-1">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0" />
+                      <p className="font-semibold text-foreground">{testimonial.name}</p>
+                    </div>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <Badge variant="outline" className="text-accent border-accent/30 text-xs font-medium">
+                      {testimonial.company}
+                    </Badge>
                   </div>
                 </CardContent>
               </Card>

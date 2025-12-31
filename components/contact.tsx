@@ -1,14 +1,14 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Send, Clock, CheckCircle2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 
 export function Contact() {
@@ -38,8 +38,8 @@ export function Contact() {
 
       if (response.ok) {
         toast({
-          title: "Message sent!",
-          description: "Thank you for your message. I'll get back to you soon.",
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you within 24 hours.",
         })
         setFormData({ name: "", email: "", subject: "", message: "" })
       } else {
@@ -68,8 +68,8 @@ export function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "Bader.echchalh1@gmail.com",
-      href: "mailto:Bader.echchalh1@gmail.com",
+      value: "bader.echchalh1@gmail.com",
+      href: "mailto:bader.echchalh1@gmail.com",
     },
     {
       icon: Phone,
@@ -86,24 +86,30 @@ export function Contact() {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "LinkedIn Profile",
-      href: "https://www.linkedin.com/in/bader-ech-chalh/", // Updated LinkedIn URL to new profile link
+      value: "Connect on LinkedIn",
+      href: "https://www.linkedin.com/in/bader-ech-chalh/",
     },
   ]
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-background">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Ready to collaborate on your next project? Let's discuss how I can help bring your ideas to life.
+          <div className="inline-block mb-4">
+            <Badge variant="outline" className="text-primary font-medium">
+              Get in Touch
+            </Badge>
+          </div>
+          <h2 className="text-balance mb-6">Let's Connect</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl text-pretty">
+            Open to full-time positions, contract work, and project collaborations. Reach out directly or send a
+            message—I'll respond within 24 hours.
           </p>
         </motion.div>
 
@@ -116,12 +122,12 @@ export function Contact() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
-              <p className="text-muted-foreground mb-8 text-pretty">
-                I'm always interested in new opportunities and collaborations. Whether you have a project in mind or
-                just want to say hello, feel free to reach out through any of the channels below.
-              </p>
+            <div className="space-y-3">
+              <h3 className="text-2xl font-bold">Direct Contact</h3>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Clock className="h-4 w-4" />
+                <span className="text-sm font-medium">Response time: 2-4 hours (business hours)</span>
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -132,26 +138,38 @@ export function Contact() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-card border border-border hover:bg-accent/50 transition-colors duration-200"
+                  className="card-premium p-4 group hover:shadow-md transition-all duration-300"
                 >
-                  <info.icon className="h-5 w-5 text-primary" />
-                  <div>
-                    <div className="font-medium">{info.label}</div>
-                    {info.href ? (
-                      <a
-                        href={info.href}
-                        target={info.href.startsWith("http") ? "_blank" : undefined}
-                        rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
-                      <span className="text-muted-foreground">{info.value}</span>
-                    )}
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
+                      <info.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-medium text-sm text-muted-foreground">{info.label}</div>
+                      {info.href ? (
+                        <a
+                          href={info.href}
+                          target={info.href.startsWith("http") ? "_blank" : undefined}
+                          rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="text-foreground font-medium hover:text-primary transition-colors duration-200"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <span className="text-foreground font-medium">{info.value}</span>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}
+            </div>
+
+            <div className="bg-accent/5 border border-accent/20 rounded-lg p-4 flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-sm text-foreground">Available Now</p>
+                <p className="text-sm text-muted-foreground mt-1">Ready for interviews and technical discussions</p>
+              </div>
             </div>
           </motion.div>
 
@@ -162,7 +180,7 @@ export function Contact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card>
+            <Card className="card-premium">
               <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
               </CardHeader>
@@ -171,7 +189,7 @@ export function Contact() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium">
-                        Name *
+                        Name <span className="text-accent">*</span>
                       </label>
                       <Input
                         id="name"
@@ -180,11 +198,12 @@ export function Contact() {
                         onChange={handleChange}
                         required
                         placeholder="Your name"
+                        className="transition-all duration-200"
                       />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">
-                        Email *
+                        Email <span className="text-accent">*</span>
                       </label>
                       <Input
                         id="email"
@@ -194,13 +213,14 @@ export function Contact() {
                         onChange={handleChange}
                         required
                         placeholder="your.email@example.com"
+                        className="transition-all duration-200"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium">
-                      Subject *
+                      Subject <span className="text-accent">*</span>
                     </label>
                     <Input
                       id="subject"
@@ -208,13 +228,14 @@ export function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      placeholder="What's this about?"
+                      placeholder="e.g., Job Opportunity, Project Inquiry"
+                      className="transition-all duration-200"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">
-                      Message *
+                      Message <span className="text-accent">*</span>
                     </label>
                     <Textarea
                       id="message"
@@ -222,17 +243,26 @@ export function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      placeholder="Tell me about your project or just say hello..."
+                      placeholder="Tell me about the opportunity..."
                       rows={5}
+                      className="transition-all duration-200"
                     />
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full group transition-all duration-300"
+                    disabled={isSubmitting}
+                    size="lg"
+                  >
                     {isSubmitting ? (
-                      "Sending..."
+                      <span className="flex items-center gap-2">
+                        <span className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin"></span>
+                        Sending...
+                      </span>
                     ) : (
                       <>
-                        <Send className="mr-2 h-4 w-4" />
+                        <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                         Send Message
                       </>
                     )}

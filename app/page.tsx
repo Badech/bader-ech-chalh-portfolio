@@ -8,6 +8,7 @@ import { Education } from "@/components/education"
 import { Testimonials } from "@/components/testimonials"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { ExitIntentModal } from "@/components/exit-intent-modal"
 
 export default function Home() {
   return (
@@ -24,6 +25,8 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      {/* CHANGE: Add exit intent modal to catch leaving visitors */}
+      <ExitIntentModal />
     </div>
   )
 }

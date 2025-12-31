@@ -2,51 +2,34 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
 import { motion } from "framer-motion"
-import { Code, Cloud, Database, Mail, Users } from "lucide-react"
+import { Code2, Cloud, Database, Zap, GitBranch } from "lucide-react"
 
 export function Skills() {
   const skillCategories = [
     {
-      title: "Programming",
-      icon: Code,
-      skills: [
-        { name: "C#", level: 85 },
-        { name: "Python", level: 80 },
-        { name: "SQL", level: 90 },
-        { name: "JavaScript", level: 75 },
-        { name: "HTML5/CSS3", level: 85 },
-      ],
+      title: "Frontend Development",
+      icon: Code2,
+      description: "Modern web interfaces",
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
     },
     {
-      title: "Cloud & Platforms",
-      icon: Cloud,
-      skills: [
-        { name: "AWS", level: 80 },
-        { name: "Microsoft Azure", level: 85 },
-        { name: "Sendinblue", level: 90 },
-        { name: "Windev", level: 75 },
-      ],
-    },
-    {
-      title: "Database",
+      title: "Backend & Databases",
       icon: Database,
-      skills: [
-        { name: "SQL Server", level: 90 },
-        { name: "Database Design", level: 85 },
-        { name: "Query Optimization", level: 80 },
-      ],
+      description: "Robust data solutions",
+      skills: ["SQL Server", "C#", "Python", "Query Optimization", "Database Design"],
     },
     {
-      title: "Marketing",
-      icon: Mail,
-      skills: [
-        { name: "Email Marketing", level: 95 },
-        { name: "Campaign Analytics", level: 85 },
-        { name: "Digital Marketing", level: 80 },
-        { name: "Online Research", level: 90 },
-      ],
+      title: "Cloud & DevOps",
+      icon: Cloud,
+      description: "Enterprise infrastructure",
+      skills: ["AWS", "Microsoft Azure", "Cloud Architecture", "DevOps", "Deployment"],
+    },
+    {
+      title: "Version Control & Tools",
+      icon: GitBranch,
+      description: "Development workflow",
+      skills: ["Git", "GitHub", "CI/CD", "API Design", "REST APIs"],
     },
   ]
 
@@ -55,26 +38,35 @@ export function Skills() {
     "Problem-Solving",
     "Adaptability",
     "Teamwork",
-    "Attention to Detail",
     "Leadership",
+    "Attention to Detail",
+    "Project Management",
+    "Strategic Thinking",
   ]
 
   return (
-    <section id="skills" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 bg-muted/50">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            A comprehensive toolkit built through years of hands-on experience and continuous learning.
+          <div className="inline-block mb-4">
+            <Badge variant="outline" className="text-primary font-medium">
+              Technical Expertise
+            </Badge>
+          </div>
+          <h2 className="text-balance mb-6">Full-Stack Development & Cloud Infrastructure</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl text-pretty">
+            Enterprise-ready expertise across the full stack. I design, build, and deploy scalable applications using
+            modern frameworks, databases, and cloud platforms.
           </p>
         </motion.div>
 
+        {/* Technical Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {skillCategories.map((category, index) => (
             <motion.div
@@ -84,42 +76,60 @@ export function Skills() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full">
-                <CardHeader className="text-center">
-                  <category.icon className="h-8 w-8 text-primary mx-auto mb-2" />
+              <Card className="card-premium h-full hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-2">
+                    <category.icon className="h-6 w-6 text-accent" />
+                    <span className="text-xs font-medium text-muted-foreground bg-primary/10 px-2 py-1 rounded-full">
+                      {category.skills.length} Skills
+                    </span>
+                  </div>
                   <CardTitle className="text-lg">{category.title}</CardTitle>
+                  <p className="text-sm text-muted-foreground mt-1">{category.description}</p>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  {category.skills.map((skill) => (
-                    <div key={skill.name} className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>{skill.name}</span>
-                        <span className="text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <Progress value={skill.level} className="h-2" />
-                    </div>
-                  ))}
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <Badge
+                        key={skill}
+                        variant="secondary"
+                        className="text-xs font-medium bg-primary/5 text-primary hover:bg-primary/10"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
 
+        {/* Soft Skills Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Card>
-            <CardHeader className="text-center">
-              <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-              <CardTitle>Soft Skills</CardTitle>
+          <Card className="card-premium">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <Zap className="h-6 w-6 text-accent" />
+                <div>
+                  <CardTitle>Professional Attributes</CardTitle>
+                  <p className="text-sm text-muted-foreground mt-1">Core competencies that drive success</p>
+                </div>
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap gap-3">
                 {softSkills.map((skill) => (
-                  <Badge key={skill} variant="outline" className="text-sm py-2 px-4">
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="text-sm py-2 px-3 font-medium border-primary/30 hover:bg-primary/5"
+                  >
                     {skill}
                   </Badge>
                 ))}

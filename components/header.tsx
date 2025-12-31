@@ -8,11 +8,23 @@ import { useTheme } from "next-themes"
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+
+      const sections = ["home", "about", "skills", "projects", "experience", "education", "contact"]
+      const current = sections.find((section) => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+      if (current) setActiveSection(current)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -31,28 +43,41 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="font-bold text-xl text-primary">Bader Ech-chalh</div>
+          <a
+            href="#home"
+            className="font-bold text-lg md:text-xl text-primary font-semibold hover:opacity-80 transition-opacity"
+          >
+            Bader
+          </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  activeSection === item.href.replace("#", "")
+                    ? "text-primary bg-primary/10"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Theme Toggle */}
+          {/* Right side controls */}
           <div className="flex items-center space-x-4">
+            <Button variant="default" size="sm" className="hidden sm:inline-flex" asChild>
+              <a href="#contact">Hire Me</a>
+            </Button>
+
             <Button
               variant="ghost"
               size="icon"
@@ -78,18 +103,25 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col space-y-4">
+          <nav className="md:hidden pb-4 border-t border-border">
+            <div className="flex flex-col space-y-2 pt-4">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200"
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                    activeSection === item.href.replace("#", "")
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground/70 hover:text-foreground"
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
+              <Button variant="default" size="sm" className="w-full mt-2" asChild>
+                <a href="#contact">Hire Me</a>
+              </Button>
             </div>
           </nav>
         )}

@@ -41,6 +41,14 @@ export function Education() {
       description: "Foundational certification in front-end web development with focus on responsive design.",
       skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     },
+    {
+      name: "Azure AI Fundamentals",
+      issuer: "Microsoft",
+      date: "Dec 2025",
+      description:
+        "Comprehensive certification demonstrating foundational knowledge of AI concepts and Microsoft Azure AI services.",
+      skills: ["AI Fundamentals", "Azure AI Services", "Machine Learning", "Generative AI"],
+    },
   ]
 
   return (

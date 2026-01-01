@@ -3,6 +3,8 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
+import { AISpecialization } from "@/components/ai-specialization"
+import { Services } from "@/components/services"
 import { Experience } from "@/components/experience"
 import { Education } from "@/components/education"
 import { Testimonials } from "@/components/testimonials"
@@ -19,13 +21,14 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
+        <AISpecialization />
+        <Services />
         <Experience />
         <Education />
         <Testimonials />
         <Contact />
       </main>
       <Footer />
-      {/* CHANGE: Add exit intent modal to catch leaving visitors */}
       <ExitIntentModal />
     </div>
   )

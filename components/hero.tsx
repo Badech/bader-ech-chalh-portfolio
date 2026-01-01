@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Mail, Linkedin, Github, Calendar } from "lucide-react"
+import { ArrowDown, Mail, Linkedin, Github } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function Hero() {
@@ -26,7 +26,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="mb-4"
           >
-            <p className="text-primary font-semibold text-lg tracking-wide">Full-Stack Developer</p>
+            <p className="text-primary font-semibold text-lg tracking-wide">Full-Stack Developer & AI Enthusiast</p>
           </motion.div>
 
           <motion.h1
@@ -35,7 +35,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-balance mb-6"
           >
-            Full-Stack Developer & Email Marketing Specialist
+            Build Scalable Web Apps & AI-Powered Automation
           </motion.h1>
 
           <motion.p
@@ -44,9 +44,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl text-pretty"
           >
-            I build fast, scalable web applications and automate complex business processes. Full-stack expertise across
-            React, Next.js, AWS, and Azure—delivered as production-ready solutions that drive measurable business
-            results.
+            I architect modern web applications and harness AI tools to automate complex workflows. Expert across React,
+            Next.js, Python, and cloud platforms—delivering intelligent solutions that scale.
           </motion.p>
 
           <motion.div
@@ -56,19 +55,16 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-center gap-4 mb-16"
           >
             <Button size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90" asChild>
-              <a href="https://cal.com" target="_blank" rel="noopener noreferrer">
-                <Calendar className="mr-2 h-4 w-4" />
-                Schedule Interview
+              <a href="#projects">
+                <ArrowDown className="mr-2 h-4 w-4" />
+                View Featured Projects
               </a>
             </Button>
             <Button size="lg" className="w-full sm:w-auto" asChild>
               <a href="#contact">
                 <Mail className="mr-2 h-4 w-4" />
-                Reach Out Now
+                Contact Me
               </a>
-            </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent" asChild>
-              <a href="#projects">View My Work</a>
             </Button>
           </motion.div>
 

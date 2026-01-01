@@ -15,7 +15,17 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
 
-      const sections = ["home", "about", "skills", "projects", "experience", "education", "contact"]
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "ai-specialization",
+        "services",
+        "experience",
+        "education",
+        "contact",
+      ]
       const current = sections.find((section) => {
         const element = document.getElementById(section)
         if (element) {
@@ -35,6 +45,8 @@ export function Header() {
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
+    { href: "#ai-specialization", label: "AI & Automation" },
+    { href: "#services", label: "Services" },
     { href: "#experience", label: "Experience" },
     { href: "#education", label: "Education" },
     { href: "#contact", label: "Contact" },
@@ -75,7 +87,7 @@ export function Header() {
           {/* Right side controls */}
           <div className="flex items-center space-x-4">
             <Button variant="default" size="sm" className="hidden sm:inline-flex" asChild>
-              <a href="#contact">Hire Me</a>
+              <a href="#contact">Contact Me</a>
             </Button>
 
             <Button
@@ -120,7 +132,7 @@ export function Header() {
                 </a>
               ))}
               <Button variant="default" size="sm" className="w-full mt-2" asChild>
-                <a href="#contact">Hire Me</a>
+                <a href="#contact">Contact Me</a>
               </Button>
             </div>
           </nav>

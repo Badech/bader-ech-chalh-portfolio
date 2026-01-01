@@ -39,7 +39,7 @@ export function Footer() {
           <div className="text-center space-y-2">
             <h3 className="text-2xl font-bold text-primary">Bader Ech-chalh</h3>
             <p className="text-muted-foreground max-w-md mx-auto text-pretty text-sm">
-              Email Marketing Specialist & Full-Stack Developer crafting digital solutions
+              Full-Stack Developer & AI Integration Specialist building intelligent solutions
             </p>
           </div>
 

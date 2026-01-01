@@ -3,21 +3,27 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
-import { Code2, Cloud, Database, Zap, GitBranch } from "lucide-react"
+import { Code2, Brain, Cloud, Zap, GitBranch, Cpu } from "lucide-react"
 
 export function Skills() {
   const skillCategories = [
     {
       title: "Frontend Development",
       icon: Code2,
-      description: "Modern web interfaces",
+      description: "Modern, responsive interfaces",
       skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
     },
     {
+      title: "AI & Automation",
+      icon: Brain,
+      description: "AI integration & workflow automation",
+      skills: ["OpenAI APIs", "AI Integration", "Prompt Engineering", "Automation Workflows", "Data Processing"],
+    },
+    {
       title: "Backend & Databases",
-      icon: Database,
-      description: "Robust data solutions",
-      skills: ["SQL Server", "C#", "Python", "Query Optimization", "Database Design"],
+      icon: Cpu,
+      description: "Robust, scalable systems",
+      skills: ["SQL Server", "C#", "Python", "Database Design", "Query Optimization"],
     },
     {
       title: "Cloud & DevOps",
@@ -26,22 +32,28 @@ export function Skills() {
       skills: ["AWS", "Microsoft Azure", "Cloud Architecture", "DevOps", "Deployment"],
     },
     {
-      title: "Version Control & Tools",
+      title: "Tools & Workflow",
       icon: GitBranch,
-      description: "Development workflow",
+      description: "Development excellence",
       skills: ["Git", "GitHub", "CI/CD", "API Design", "REST APIs"],
+    },
+    {
+      title: "Full-Stack Integration",
+      icon: Zap,
+      description: "End-to-end solutions",
+      skills: ["System Architecture", "API Integration", "Performance Optimization", "Security", "Scalability"],
     },
   ]
 
   const softSkills = [
-    "Communication",
     "Problem-Solving",
-    "Adaptability",
-    "Teamwork",
-    "Leadership",
-    "Attention to Detail",
-    "Project Management",
+    "Communication",
+    "Technical Leadership",
     "Strategic Thinking",
+    "Adaptability",
+    "Project Management",
+    "Attention to Detail",
+    "Team Collaboration",
   ]
 
   return (
@@ -59,15 +71,15 @@ export function Skills() {
               Technical Expertise
             </Badge>
           </div>
-          <h2 className="text-balance mb-6">Full-Stack Development & Cloud Infrastructure</h2>
+          <h2 className="text-balance mb-6">Full-Stack Development & AI Integration</h2>
           <p className="text-lg text-muted-foreground max-w-3xl text-pretty">
-            Enterprise-ready expertise across the full stack. I design, build, and deploy scalable applications using
-            modern frameworks, databases, and cloud platforms.
+            Complete expertise across modern web development, cloud infrastructure, and AI integration. I build scalable
+            applications that leverage intelligent automation for measurable business impact.
           </p>
         </motion.div>
 
         {/* Technical Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}

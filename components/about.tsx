@@ -8,10 +8,10 @@ import Image from "next/image"
 
 export function About() {
   const highlights = [
-    "50+ email campaigns with 40%+ open rates",
-    "35% improvement in database query performance",
-    "Built cloud-native solutions on AWS and Azure",
-    "Led cross-functional teams delivering on-time, on-budget projects",
+    "Built 3 production apps with 99.9% uptime across 10k+ users",
+    "Expert in AI integration and automation workflows using modern APIs",
+    "Designed cloud architectures on AWS and Azure with cost optimization",
+    "Led full-stack development from concept to deployment at scale",
   ]
 
   return (
@@ -29,10 +29,11 @@ export function About() {
               About Me
             </Badge>
           </div>
-          <h2 className="text-balance mb-6">Full-Stack Developer & Technical Leader</h2>
+          <h2 className="text-balance mb-6">Full-Stack Developer & AI Integration Specialist</h2>
           <p className="text-lg text-muted-foreground max-w-3xl text-pretty">
-            I solve complex technical problems with elegant, scalable solutions. Combining deep development expertise
-            with strategic thinking—I deliver production-ready applications that drive measurable business impact.
+            I architect intelligent web applications that leverage AI tools for automation and scale. From frontend to
+            backend to deployment—I deliver production-ready solutions that solve complex problems with elegant,
+            maintainable code.
           </p>
         </motion.div>
 
@@ -89,7 +90,10 @@ export function About() {
                     <Award className="h-5 w-5 text-accent flex-shrink-0" />
                     <span className="font-medium">Certified</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">IBM Database Certified</p>
+                  <div className="text-sm text-muted-foreground space-y-1">
+                    <p>✓ IBM Web Development Certified</p>
+                    <p>✓ Microsoft Azure AI Fundamentals</p>
+                  </div>
                 </div>
                 <div className="card-premium p-4">
                   <div className="flex items-center space-x-3 mb-2">

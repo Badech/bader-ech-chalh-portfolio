@@ -10,12 +10,44 @@ import Image from "next/image"
 export function Projects() {
   const projects = [
     {
+      id: 2,
+      title: "AI Story Maker",
+      featured: true,
+      problem: "Content creators struggle with creative blocks and need AI-assisted story generation",
+      solution:
+        "Built an AI-powered full-stack application integrating OpenAI APIs with real-time streaming. Implemented advanced state management and smooth animations for seamless UX with intelligent content generation.",
+      impact: "2M+ stories generated with AI, 100+ variations per session",
+      metrics: [
+        { label: "AI Processing Speed", value: "Real-time" },
+        { label: "Stories Generated", value: "2M+" },
+      ],
+      features: [
+        "OpenAI API integration with streaming",
+        "AI-customizable narrative generation",
+        "Smart prompt engineering for better outputs",
+        "Real-time generation feedback with animations",
+      ],
+      technologies: ["Next.js", "React", "TypeScript", "OpenAI APIs", "Tailwind CSS", "Framer Motion"],
+      images: [
+        {
+          src: "/images/ai-story-maker-1.png",
+          alt: "AI Story Maker - Main Interface",
+        },
+        {
+          src: "/images/ai-story-maker-2.png",
+          alt: "AI Story Maker - Generated Story",
+        },
+      ],
+      liveUrl: "https://ai-ideas-to-story.vercel.app/",
+      githubUrl: "https://github.com/Badech?tab=repositories",
+    },
+    {
       id: 1,
       title: "Smart Geo Domain Generator",
       featured: true,
-      problem: "Domain discovery wastes hours of research and fails to consider market relevance",
+      problem: "Domain discovery wastes hours and lacks market intelligence for geographic targeting",
       solution:
-        "Built a full-stack search application with real-time API integration, advanced geographic filtering, and market analytics. Fast, reliable, and production-ready.",
+        "Built a full-stack search application with real-time API integration, intelligent filtering, and market analytics. Optimized for performance with sub-200ms response times.",
       impact: "10x faster discovery across 500+ entrepreneurs",
       metrics: [
         { label: "Response Time", value: "<200ms" },
@@ -23,8 +55,8 @@ export function Projects() {
       ],
       features: [
         "Real-time domain availability checking",
-        "Geographic filtering & market segmentation",
-        "Appraisal and valuation engine",
+        "Geographic targeting & market segmentation",
+        "AI-powered domain recommendations",
         "SEO research integration",
       ],
       technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "REST APIs"],
@@ -42,56 +74,24 @@ export function Projects() {
       githubUrl: "https://github.com/Badech?tab=repositories",
     },
     {
-      id: 2,
-      title: "AI Story Maker",
-      featured: true,
-      problem: "Content creators struggle with writer's block and repetitive idea generation",
-      solution:
-        "Developed a full-stack application integrating OpenAI APIs with real-time streaming. Implemented smart state management and smooth animations for seamless user experience.",
-      impact: "2M+ stories generated, 100+ variations per session",
-      metrics: [
-        { label: "Processing Speed", value: "Real-time" },
-        { label: "Generated Stories", value: "2M+" },
-      ],
-      features: [
-        "AI-powered narrative generation with customizable parameters",
-        "Genre, tone, and character customization",
-        "Story history and export functionality",
-        "Real-time generation feedback",
-      ],
-      technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "OpenAI APIs", "Framer Motion"],
-      images: [
-        {
-          src: "/images/ai-story-maker-1.png",
-          alt: "AI Story Maker - Main Interface",
-        },
-        {
-          src: "/images/ai-story-maker-2.png",
-          alt: "AI Story Maker - Generated Story",
-        },
-      ],
-      liveUrl: "https://ai-ideas-to-story.vercel.app/",
-      githubUrl: "https://github.com/Badech?tab=repositories",
-    },
-    {
       id: 3,
-      title: "Job Application Email Sender",
+      title: "Job Application Email Automation",
       featured: false,
       problem: "Job seekers waste 40+ hours on manual application processes across multiple companies",
       solution:
-        "Built a backend service for bulk email automation with secure authentication, file handling, and real-time delivery tracking. Engineered for reliability and scale.",
-      impact: "80% time savings, 300+ seamless applications per user",
+        "Engineered a backend automation service for bulk email delivery with secure authentication, intelligent file handling, and delivery tracking. Built for reliability and scale.",
+      impact: "80% time savings, 300+ automated applications per user",
       metrics: [
         { label: "Success Rate", value: "99.2%" },
         { label: "Bulk Capacity", value: "1000s/day" },
       ],
       features: [
-        "Secure Gmail app password authentication",
+        "Secure Gmail automation with app passwords",
         "Bulk recipient management with CSV import",
-        "Custom email templates with variable substitution",
-        "Real-time delivery tracking",
+        "Template engine with intelligent variable substitution",
+        "Real-time delivery tracking & reporting",
       ],
-      technologies: ["Python", "Flask", "JavaScript", "Email APIs", "File Handling", "Bootstrap"],
+      technologies: ["Python", "Flask", "JavaScript", "Email Automation", "File Processing", "Bootstrap"],
       images: [
         {
           src: "/images/job-email-sender-1.png",
